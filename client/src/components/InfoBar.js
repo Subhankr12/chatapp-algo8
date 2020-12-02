@@ -28,7 +28,7 @@ const InfoBar = ({ room }) => (
                 display: flex;
             }
             .icon {
-                width: 10px;
+                width: 15px;
                 margin-right: 10px;
             }
         `}</style>
