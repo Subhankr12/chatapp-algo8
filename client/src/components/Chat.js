@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import queryString from 'query-string';
 import io from 'socket.io-client';
+import InfoBar from './InfoBar';
+import globalStyles from './common/globalStyles';
 
 let socket;
 
@@ -49,8 +51,22 @@ const Chat = ({ location }) => {
     return (
         <div className="container">
             <div className="wrapper">
-                <input type="text" value={message} onChange={(e) => setMessage(e.target.value)} onKeyPress={(e) => e.key === 'Enter' ? sendMessage(e) : null} />
+                <InfoBar room={room} />
+                <div className="messagewrapper"></div>
+                {/* <input type="text" value={message} onChange={(e) => setMessage(e.target.value)} onKeyPress={(e) => e.key === 'Enter' ? sendMessage(e) : null} /> */}
             </div>
+            <style jsx="true">{`
+                .container {
+                    width: 40%;
+                    margin: 0 auto;
+                    border: 2px solid ${globalStyles.colors.darkbackground};
+                    border-radius: 0.2em;
+                }
+                .messagewrapper {
+                    height: 400px;
+                    background: ${globalStyles.colors.white};
+                }
+            `}</style>
         </div>
     )
 }
